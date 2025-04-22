@@ -67,36 +67,35 @@ def create_histogram(id):
     plt.show()
 
 def main():
-    while True:
-        print("1. Student grade")
-        print("2. Assignment statistics")
-        print("3. Assignment graph\n")
-        choice = input("Enter your selection: ")
-        if choice == "1":
-            name = input("What is the student's name: ")
-            grade = get_grade_student(find_student_id(name))
-            if grade:
-                print(f"{grade} %")
-            else:
-                print("Student not found")
-        if choice == "2":
-            name = input("What is the assignment name: ")
-            assignment_id = get_assignment_id(name)
-            if assignment_id:
-                values = get_grade_assignment(assignment_id)
-                print(f"Min: {values[2]}%")
-                print(f"Avg: {values[0]}%")
-                print(f"Max: {values[1]}%")
-            else:
-                print("Assignment not found")
-        if choice == "3":
-            name = input("What is the assignment name: ")
-            assignment_id = get_assignment_id(name)
-            if assignment_id:
-                create_histogram(assignment_id)
-            else:
-                print("Assignment not found")
-        print()
+    print("1. Student grade")
+    print("2. Assignment statistics")
+    print("3. Assignment graph\n")
+    choice = input("Enter your selection: ")
+    if choice == "1":
+        name = input("What is the student's name: ")
+        grade = get_grade_student(find_student_id(name))
+        if grade:
+            print(f"{grade} %")
+        else:
+            print("Student not found")
+    if choice == "2":
+        name = input("What is the assignment name: ")
+        assignment_id = get_assignment_id(name)
+        if assignment_id:
+            values = get_grade_assignment(assignment_id)
+            print(f"Min: {values[2]}%")
+            print(f"Avg: {values[0]}%")
+            print(f"Max: {values[1]}%")
+        else:
+            print("Assignment not found")
+    if choice == "3":
+        name = input("What is the assignment name: ")
+        assignment_id = get_assignment_id(name)
+        if assignment_id:
+            create_histogram(assignment_id)
+        else:
+            print("Assignment not found")
+    print()
 
 
 if __name__ == "__main__":
